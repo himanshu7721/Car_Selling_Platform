@@ -1,0 +1,57 @@
+<mat-card>
+  <div class="center-class"><mat-icon class="icon-large">person_pin</mat-icon></div>
+
+    <form class="example-form">
+        
+        
+          <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field appearance="fill">
+              <mat-label>First name</mat-label>
+              <input matInput>
+            </mat-form-field></td>
+            <td><mat-form-field appearance="fill">
+              <mat-label>Last Name</mat-label>
+              <input matInput>
+            </mat-form-field></td>
+          </tr></table>
+        
+          <p>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Address</mat-label>
+              <textarea matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Phone Number</mat-label>
+              <input type="text" matInput minlength="10" maxlength="10" required>
+            </mat-form-field>
+          </p>
+        
+          <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Email Address</mat-label>
+              <input type="email" matInput placeholder="Ex. temp@email.com" required>
+            </mat-form-field></td>
+            
+          </tr></table>
+
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Password</mat-label>
+                  <input type="password" matInput placeholder="password should be atleast 8 characters long" minlength="8" maxlength="15" required>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Confirm Password</mat-label>
+                  <input type="password" matInput placeholder="type the same password as above" minlength="8" maxlength="15" required>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+          <div class="submit-button">
+            <button mat-raised-button color="accent">Submit</button>
+          </div>
+    </form>
+</mat-card>

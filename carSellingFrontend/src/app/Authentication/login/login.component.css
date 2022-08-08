@@ -1,0 +1,14 @@
+.example-full-width
+{
+    width: 70%;
+}
+mat-card
+{
+    margin-top: 5%;
+    text-align: center;
+}
+.icon-large
+{
+    transform: scale(4);
+    color:rgb(211, 59, 122)
+}
