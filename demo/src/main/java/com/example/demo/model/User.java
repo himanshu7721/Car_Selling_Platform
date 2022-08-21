@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,14 +26,12 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long user_id;
+	private long id;
 	private String fname;
 	private String lname;
 	private String address;
 	private String phone_number;
 	private String emailId;
 	private String password;
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<CarDetails> cardetails;
 
 }
