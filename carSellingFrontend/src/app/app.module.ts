@@ -19,6 +19,12 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { FormsModule } from '@angular/forms';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +47,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatAutocompleteModule,
     FormsModule,
     ReactiveFormsModule,
+    MatTabsModule,
+    MatStepperModule,
+    MatSelectModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

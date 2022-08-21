@@ -1,17 +1,23 @@
 <mat-card>
     <div class="center-class"><mat-icon class="icon-large">person_pin</mat-icon></div>
   
-      <form class="example-form">
+      <form class="example-form" (ngSubmit)="onFormSubmit()">
           
           
             
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>EmailId</mat-label>
-                <input type="email" matInput required>
+                <input type="email" 
+                [(ngModel)]="user.email"
+                [formControl]="email"
+                matInput required>
               </mat-form-field>
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Password</mat-label>
-                <input type="password" maxlength="15" matInput required>
+                <input type="password" maxlength="15" 
+                [(ngModel)]="user.password"
+                [formControl]="password"
+                matInput required>
               </mat-form-field>
             <button class="example-full-width" mat-raised-button color="accent">Login</button>
             </form>

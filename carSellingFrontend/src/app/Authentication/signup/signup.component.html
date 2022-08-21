@@ -1,35 +1,50 @@
 <mat-card>
   <div class="center-class"><mat-icon class="icon-large">person_pin</mat-icon></div>
 
-    <form class="example-form">
+    <form class="example-form" (ngSubmit)="onformsubmit()">
         
         
           <table class="example-full-width" cellspacing="0"><tr>
             <td><mat-form-field appearance="fill">
               <mat-label>First name</mat-label>
-              <input matInput>
+              <input
+              [(ngModel)]="user.fname"
+              [formControl]="fname"
+              matInput required>
             </mat-form-field></td>
             <td><mat-form-field appearance="fill">
               <mat-label>Last Name</mat-label>
-              <input matInput>
+              <input 
+              [(ngModel)]="user.lname"
+              [formControl]="lname"
+              matInput required>
             </mat-form-field></td>
           </tr></table>
         
           <p>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Address</mat-label>
-              <textarea matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
+              <textarea 
+              [(ngModel)]="user.address"
+              [formControl]="address"
+              matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Phone Number</mat-label>
-              <input type="text" matInput minlength="10" maxlength="10" required>
+              <input type="text" 
+              [(ngModel)]="user.phone_number"
+              [formControl]="phone_number"
+              matInput minlength="10" maxlength="10" required>
             </mat-form-field>
           </p>
         
           <table class="example-full-width" cellspacing="0"><tr>
             <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Email Address</mat-label>
-              <input type="email" matInput placeholder="Ex. temp@email.com" required>
+              <input type="email"
+              [(ngModel)]="user.emailId"
+              [formControl]="email_id"
+              matInput placeholder="Ex. temp@email.com" required>
             </mat-form-field></td>
             
           </tr></table>
@@ -39,7 +54,10 @@
               <td>
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Password</mat-label>
-                  <input type="password" matInput placeholder="password should be atleast 8 characters long" minlength="8" maxlength="15" required>
+                  <input type="password" 
+                  [(ngModel)]="user.password"
+                  [formControl]="password"
+                  matInput placeholder="password should be atleast 8 characters long" minlength="8" maxlength="15" required>
                 </mat-form-field>
               </td>
               <td>

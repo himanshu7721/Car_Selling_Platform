@@ -1,5 +1,12 @@
+<div class="main-container">
+<mat-tab-group mat-align-tabs="center">
+
+
+  <!--Car Buying Tab-->
+  
+  <mat-tab label="Buy Car">
+
 <div class="container-1">
-  <div clas="form-container">
 <form class="example-form">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Search Your Dream Car</mat-label>
@@ -10,8 +17,272 @@
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
-    
+
+
     <button mat-raised-button color="warn">View All Cars</button>
   </form>
   </div>
+  </mat-tab>
+  
+
+
+
+<!--Car Selling Tab!-->
+
+  <mat-tab label="Sell Car">
+    seconsnmsa
+
+
+    <mat-stepper linear #stepper>
+
+      <!--1st form-->
+
+      <mat-step [stepControl]="brandFormGroup">
+        <form [formGroup]="brandFormGroup">
+          <ng-template matStepLabel>Brand</ng-template>
+          <label> Enter Car Manufacturing Brand</label>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Car Manufacting</mat-label>
+              <mat-select
+              formControlName="brandCtrl"
+              [(ngModel)]="carDetails.brand"
+              >
+                <mat-option value="volvo">Volvo</mat-option>
+                <mat-option value="suzuki">Maruti Suzuki</mat-option>
+                <mat-option value="hyundai"> Hyundai </mat-option>
+                <mat-option value="tata"> TATA </mat-option>
+                <mat-option value="mahindra"> Mahindra </mat-option>
+                <mat-option value="toyota"> Toyota </mat-option>
+              </mat-select>
+          </mat-form-field>
+          
+
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!--2nd form-->
+
+      <mat-step [stepControl]="modelFormGroup" label="Car Model">
+        <form [formGroup]="modelFormGroup" 
+        style="margin-left:10%">
+
+          <mat-form-field 
+          *ngIf="carDetails.brand=='volvo'" 
+          appearance="fill">
+            <mat-label>Model</mat-label>
+            <mat-select 
+            formControlName="modelCtrl"
+            placeholder="Car Model Name"
+            [(ngModel)]="carDetails.carModel"
+            required>
+            <mat-option value="VolvoXC90">Volco XC90</mat-option>
+            <mat-option value="VolvoXC40">Volco XC40</mat-option>
+            <mat-option value="VolvoXC60">Volco XC60</mat-option>
+            <mat-option value="VolvoS60">Volco S60</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field 
+          *ngIf="carDetails.brand=='hyundai'" 
+          appearance="fill">
+            <mat-label>Model</mat-label>
+            <mat-select 
+            formControlName="modelCtrl"
+            placeholder="Car Model Name"
+            [(ngModel)]="carDetails.carModel"
+            required>
+            <mat-option value="i20">i20</mat-option>
+            <mat-option value="nios">nios</mat-option>
+            <mat-option value="creta">Creta</mat-option>
+            <mat-option value="tucson">Tucson</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+          <mat-form-field 
+          *ngIf="carDetails.brand=='suzuki'" 
+          appearance="fill">
+            <mat-label>Model</mat-label>
+            <mat-select 
+            formControlName="modelCtrl"
+            placeholder="Car Model Name"
+            [(ngModel)]="carDetails.carModel"
+            required>
+            <mat-option value="Astar">A-Star</mat-option>
+            <mat-option value="swift">Swift</mat-option>
+            <mat-option value="800">Maruti 800</mat-option>
+            <mat-option value="alto">Alto</mat-option>
+            <mat-option value="breza">Vitara Breza</mat-option>
+            <mat-option value="boleno">Boleno</mat-option>
+            <mat-option value="wagnor">Wagnor</mat-option>
+            <mat-option value="xl6">XL-6</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+          <mat-form-field 
+          *ngIf="carDetails.brand=='tata'" 
+          appearance="fill">
+            <mat-label>Model</mat-label>
+            <mat-select 
+            formControlName="modelCtrl"
+            placeholder="Car Model Name"
+            [(ngModel)]="carDetails.carModel"
+            required>
+            <mat-option value="nexon">Nexon</mat-option>
+            <mat-option value="punch">Punch</mat-option>
+            <mat-option value="harrier">Harrier 800</mat-option>
+            <mat-option value="tiago">Tiago</mat-option>
+            <mat-option value="altroz">Altroz</mat-option>
+            <mat-option value="safari">Safari</mat-option>
+            <mat-option value="tigor">Tigor</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+
+          <mat-form-field 
+          *ngIf="carDetails.brand=='mahindra'" 
+          appearance="fill">
+            <mat-label>Model</mat-label>
+            <mat-select 
+            formControlName="modelCtrl"
+            placeholder="Car Model Name"
+            [(ngModel)]="carDetails.carModel"
+            required>
+            <mat-option value="scorpio">Scorpio Legend</mat-option>
+            <mat-option value="xuv700">XUV-700</mat-option>
+            <mat-option value="thar">Thar</mat-option>
+            <mat-option value="bolero">Bolero</mat-option>
+            <mat-option value="xuv300">XUV-300 Breza</mat-option>
+            <mat-option value="marazo">Marazo</mat-option>
+            <mat-option value="xuv100">XUV-100</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+
+          <mat-form-field 
+          *ngIf="carDetails.brand=='toyota'" 
+          appearance="fill">
+            <mat-label>Model</mat-label>
+            <mat-select 
+            formControlName="modelCtrl"
+            placeholder="Car Model Name"
+            [(ngModel)]="carDetails.carModel"
+            required>
+            <mat-option value="fortuner">Fortuner</mat-option>
+            <mat-option value="glanza">Glanza</mat-option>
+            <mat-option value="innova">Innova 800</mat-option>
+            <mat-option value="urban">Urban Cruzer</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+
+
+
+
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!--3rd form-->
+
+      <mat-step [stepControl]="yearFormGroup" label="Year">
+        <form [formGroup]="yearFormGroup"
+        style="margin-left:23%">
+          <mat-form-field appearance="fill">
+            <mat-label>Year</mat-label>
+            <input minlength="4" maxlength="4" matInput 
+            formControlName="yearCtrl" 
+            [(ngModel)]="carDetails.year"
+            placeholder="Manufacturing Year"
+                   required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!--4th form-->
+
+      <mat-step [stepControl]="ownerFormGroup" label="Owner">
+        <form [formGroup]="ownerFormGroup" style="margin-left:38%">
+          <mat-form-field appearance="fill">
+            <mat-label>Owner</mat-label>
+            <input matInput 
+            formControlName="ownerCtrl" 
+            [(ngModel)]="carDetails.owner"
+            placeholder="Ex.1st or 2nd"
+                   required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!--5th form-->
+
+      <mat-step [stepControl]="kmFormGroup" label="Total Km's Driven">
+        <form [formGroup]="kmFormGroup" style="margin-left:54%">
+          <mat-form-field appearance="fill">
+            <mat-label>Total Km's Driven</mat-label>
+            <input matInput formControlName="kmCtrl"
+            [(ngModel)]="carDetails.kms"
+            placeholder="Ex. 10000,40000"
+                   required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!--6th form-->
+
+      <mat-step [stepControl]="mobileFormGroup" label="Mobile Number">
+        <form [formGroup]="mobileFormGroup" style="margin-left:73%">
+          <mat-form-field appearance="fill">
+            <mat-label>Mobile Number</mat-label>
+            <input minlength="10" maxlength="10" matInput 
+            formControlName="mobileCtrl"
+            [(ngModel)]="carDetails.mobilenumber"
+             placeholder="Phone Number"
+                   required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!--done form-->
+
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="carDetailsSubmit()">Submit</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
+{{carDetails.year}}
+{{ carDetails.mobilenumber}}
+  </mat-tab>
+  </mat-tab-group>
   </div>
