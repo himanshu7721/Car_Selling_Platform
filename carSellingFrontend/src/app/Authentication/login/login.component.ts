@@ -12,11 +12,11 @@ import { AuthserviceService } from '../Services/authservice.service';
 })
 export class LoginComponent implements OnInit {
   user={
-    email:'',
+    username:'',
     password:''
   };
 
-  email=new FormControl('',[Validators.required,Validators.email]);
+  username=new FormControl('',[Validators.required]);
   password=new FormControl('',[Validators.required]);
 
   constructor(private dialogRef: MatDialogRef<LoginComponent>, private authservice:AuthserviceService,private snack:MatSnackBar) { }
@@ -26,28 +26,56 @@ export class LoginComponent implements OnInit {
 
   public onFormSubmit()
   {
-    if(this.email.hasError('required')||this.password.hasError('required')||this.email.hasError('email'))
+    if(this.username.hasError('required')||this.password.hasError('required'))
     {
-      
+      this.snack.open('Please enter the data in correct format','',{
+        duration:3000,
+      });
     }
     else{
     this.authservice.userlogin(this.user).subscribe(
       (data:any)=>
       {
-        if(data!=null)
-        {
+        //localStorage.setItem('id',data.id);
+        //console.log(localStorage.getItem('id'));
+        console.log(data);
+        this.authservice.settoken(data.token);
+        this.authservice.getcurrentuser().subscribe(
+          (currentuser)=>
+          {
+            this.authservice.setuserdetail(currentuser);
+            console.log(currentuser);
+
+            //redirect: admin: admin dashboard
+            if(this.authservice.getuserrole()=="Admin")
+            {
+
+            }
+            //redirect:user: user dashboard
+            else if(this.authservice.getuserrole()=="User")
+            {
+
+            }
+            else
+            {
+              this.authservice.logout();
+              window.location.href='';
+            }
+          }
+        )
           Swal.fire('success',
             'Successfully Logged In',
             'success',
           );
           this.dialogRef.close();
-        }
-        else
-        {
-          this.snack.open('Invalid Details','',{
-            duration:3000,
-          });
-        }
+        
+       
+      },
+      (error)=>
+      {
+        this.snack.open('Invalid Details','',{
+          duration:3000,
+        }); 
       }
     );
     

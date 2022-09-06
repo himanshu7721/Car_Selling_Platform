@@ -16,14 +16,4 @@ public class AuthenticationService {
 	{
 		return userrepo.save(user);
 	}
-
-	public User loginUser(LoginModel loginmodel) {
-		User user=userrepo.findByEmailId(loginmodel.getEmail());
-		if(user.getPassword().equals(loginmodel.getPassword()))
-		return user;
-		else
-		{
-			return null;
-		}
-	}
 }

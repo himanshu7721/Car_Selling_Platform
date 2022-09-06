@@ -34,6 +34,7 @@ public class CarDetails {
 	private String owner;
 	private String kms;
 	private String mobilenumber;
+	private boolean issold=false;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "userId")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

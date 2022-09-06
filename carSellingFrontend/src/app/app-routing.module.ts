@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Authentication/home/home.component';
+import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path:'home',
     component:HomeComponent,
     pathMatch:'full',
+  },
+  {
+    path:'',
+    component:WelcomepageComponent,
+    pathMatch:'full'
   },
 ];
 

@@ -49,6 +49,17 @@
             
           </tr></table>
 
+          <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Username</mat-label>
+              <input
+              [(ngModel)]="user.username"
+              [formControl]="username"
+              matInput placeholder="Username should be different" required>
+            </mat-form-field></td>
+            
+          </tr></table>
+
           <table class="example-full-width" cellspacing="0">
             <tr>
               <td>

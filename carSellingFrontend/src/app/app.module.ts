@@ -24,6 +24,11 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { SellcarComponent } from './sellcar/sellcar.component';
+import { BuycarComponent } from './buycar/buycar.component';
+import { authInterceptorProvider } from './Authentication/Services/intercept.interceptor';
+import { WelcomepageComponent } from './welcomepage/welcomepage.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -32,6 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
     SignupComponent,
     LoginComponent,
     HomeComponent,
+    SellcarComponent,
+    BuycarComponent,
+    WelcomepageComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,9 +60,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatSnackBarModule,
     HttpClientModule,
+    NgbModule,
     
   ],
-  providers: [],
+  providers: [authInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

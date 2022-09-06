@@ -19,8 +19,8 @@ export class SignupComponent implements OnInit {
     address:'',
     phone_number:'',
     emailId:'',
-    password:''
-
+    password:'',
+    username:''
   };
 
   fname=new FormControl('',[Validators.required]);
@@ -28,6 +28,7 @@ export class SignupComponent implements OnInit {
   address=new FormControl('',[Validators.required]);
   phone_number=new FormControl('',[Validators.required, Validators.pattern('[0-9]{10,10}')]);
   email_id=new FormControl('',[Validators.required, Validators.email]);
+  username=new FormControl('',[Validators.required]);
   password=new FormControl('',[Validators.required]);
 
   constructor(
