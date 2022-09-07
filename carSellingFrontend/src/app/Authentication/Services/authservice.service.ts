@@ -52,6 +52,8 @@ export class AuthserviceService {
   {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    localStorage.removeItem("id");
+    localStorage.removeItem("carid");
   }
 
 

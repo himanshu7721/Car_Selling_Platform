@@ -56,9 +56,12 @@ export class SellcarComponent implements OnInit {
         if(result.isConfirmed)
         { 
           this.carservice.addcarDetails(this.carDetails).subscribe(
-            (data)=>
+            (data:any)=>
           {
+            //localStorage.setItem("carid",data.id);
+            //console.log(localStorage.getItem("carid"));
             Swal.fire('Car Details Submitted Successfully\n Our Car Inspector will contact you soon!!!','','success');
+
           },
           (error)=>
           {

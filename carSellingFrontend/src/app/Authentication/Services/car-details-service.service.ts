@@ -11,6 +11,7 @@ export class CarDetailsServiceService {
   public addcarDetails(carDetails:any)
   {
     this.id=localStorage.getItem('id');
+    console.log(this.id);
     return this.http.post(`http://localhost:8080/savecar/${this.id}`,carDetails);
   }
 }

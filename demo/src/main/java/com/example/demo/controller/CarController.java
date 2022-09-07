@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,5 +36,25 @@ public class CarController {
 	{
 		return carservice.getCarsByUserId(id);
 	}
-
+	@GetMapping("/getall")
+	public List<CarDetails> getAll()
+	{
+		return carservice.getAllCars();
+	}
+	@PutMapping("/admin/approvecar/{id}")
+	public String approvecar(@PathVariable("id") long id,@RequestBody boolean approvestatus)
+	{
+		System.out.println("inside approvecar");
+		return (String)carservice.approveCar(id,approvestatus);
+	}
+	@DeleteMapping("/admin/rejectcar/{id}")
+	public String rejectcar(@PathVariable("id") long id)
+	{
+		return carservice.rejectCar(id);
+	}
+	@PutMapping("/admin/marksold/{id}")
+	public String marksold(@PathVariable("id") long id,@RequestBody boolean soldstatus)
+	{
+		return (String)carservice.marksold(id,soldstatus);
+	}
 }

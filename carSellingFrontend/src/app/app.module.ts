@@ -28,7 +28,8 @@ import { SellcarComponent } from './sellcar/sellcar.component';
 import { BuycarComponent } from './buycar/buycar.component';
 import { authInterceptorProvider } from './Authentication/Services/intercept.interceptor';
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminComponent } from './admin/admin.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SellcarComponent,
     BuycarComponent,
     WelcomepageComponent,
+    AdminComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatSelectModule,
     MatSnackBarModule,
     HttpClientModule,
-    NgbModule,
     
   ],
   providers: [authInterceptorProvider],

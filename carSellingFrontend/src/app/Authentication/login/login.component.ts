@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthserviceService } from '../Services/authservice.service';
 
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   username=new FormControl('',[Validators.required]);
   password=new FormControl('',[Validators.required]);
 
-  constructor(private dialogRef: MatDialogRef<LoginComponent>, private authservice:AuthserviceService,private snack:MatSnackBar) { }
+  constructor(private dialogRef: MatDialogRef<LoginComponent>, private authservice:AuthserviceService,private snack:MatSnackBar,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -36,25 +37,25 @@ export class LoginComponent implements OnInit {
     this.authservice.userlogin(this.user).subscribe(
       (data:any)=>
       {
-        //localStorage.setItem('id',data.id);
-        //console.log(localStorage.getItem('id'));
         console.log(data);
         this.authservice.settoken(data.token);
+        console.log(localStorage.getItem("token"));
         this.authservice.getcurrentuser().subscribe(
-          (currentuser)=>
+          (currentuser:any)=>
           {
             this.authservice.setuserdetail(currentuser);
+            localStorage.setItem('id',currentuser.id);
             console.log(currentuser);
 
             //redirect: admin: admin dashboard
             if(this.authservice.getuserrole()=="Admin")
             {
-
+              this.router.navigate(['/admin/home'])
             }
             //redirect:user: user dashboard
-            else if(this.authservice.getuserrole()=="User")
+            else if(this.authservice.getuserrole()=="user")
             {
-
+              this.router.navigate(['/user/home']);
             }
             else
             {
@@ -73,7 +74,7 @@ export class LoginComponent implements OnInit {
       },
       (error)=>
       {
-        this.snack.open('Invalid Details','',{
+        this.snack.open('Database Error or Invalid Details','',{
           duration:3000,
         }); 
       }

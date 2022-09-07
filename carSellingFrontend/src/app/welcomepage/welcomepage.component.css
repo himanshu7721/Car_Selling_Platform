@@ -1,0 +1,60 @@
+.container
+{   
+    margin-left:0%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-image: url(../../../images/carkeys.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    animation: change 20s infinite ease-in-out;
+}
+h2
+{
+    color: aliceblue;
+}
+h3,h4{
+    color:azure
+}
+.buttoncontainer
+{
+    margin-top: 15%;
+}
+#centerbutton
+{
+}
+button{
+    padding-left:10%;
+    padding-right: 10%;
+}
+
+@keyframes change{
+    0%
+    {
+        background-image: url(../../../images/car1.jpg);
+    }
+    20%
+    {
+        background-image: url(../../../images/car2.jpg);
+    }
+    40%
+    {
+        background-image: url(../../../images/car3.jpg);
+    }
+    60%
+    {
+        background-image: url(../../../images/car4.jpg);
+    }
+    80%
+    {
+        background-image: url(../../../images/car5.jpg);
+    }
+    100%
+    {
+        background-image: url(../../../images/car6.jpg);
+    }
+}

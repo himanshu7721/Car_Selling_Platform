@@ -1,0 +1,88 @@
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Unverified Cars">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Car Brand</th>
+                    <th>Car Model</th>
+                    <th>Car Manufacturing Year</th>
+                    <th>Car Owner</th>
+                    <th>Total Kms Driven</th>
+                    <th>Approve/Reject</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let car of Cars">
+                <tr *ngIf="car.isapproved!=true" >
+                    <td>{{car.brand}}</td>
+                    <td>{{car.carModel}}</td>
+                    <td>{{car.year}}</td>
+                    <td>{{car.owner}}</td>
+                    <td>{{car.kms}}</td>
+                    <td><button class="approverejectbutton" mat-raised-button color="accent" (click)="onapprove(car.id)">Approve Car</button>
+                    <br><br>
+                    <button class="approverejectbutton" mat-raised-button color="warn" (click)="onreject(car.id)">Reject Car</button>
+                </td>
+                </tr>
+            </tbody>
+          </table>
+    </mat-tab>
+
+
+    <!--Cars Available to Sell-->
+    <mat-tab label="Available Cars To Sell">'
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Car Brand</th>
+                    <th>Car Name</th>
+                    <th>Car Manufacturing Year</th>
+                    <th>Total Kms Driven</th>
+                    <th>Owner Name</th>
+                    <th>Owner Contact Details</th>
+                    <th>Owner Address</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let notsoled of Cars">
+                <tr *ngIf="notsoled.issold!=true&&notsoled.isapproved==true">
+                    <td>{{notsoled.brand}}</td>
+                    <td>{{notsoled.carModel}}</td>
+                    <td>{{notsoled.year}}</td>
+                    <td>{{notsoled.kms}}</td>
+                    <td>{{notsoled.user.fname}} {{notsoled.user.lname}}</td>
+                    <td>{{notsoled.mobilenumber}}</td>
+                    <td>{{notsoled.user.address}}</td>
+                    <td><button mat-raised-button color="accent" (click)="markAsSold(notsoled.id)">Mark As Sold</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-tab>
+
+
+    <!--Cars that are sold-->
+    <mat-tab label="Sold-Cars">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Car Brand</th>
+                    <th>Car Name</th>
+                    <th>Car Manufacturing Year</th>
+                    <th>Total Kms Driven</th>
+                    <th>Owner Name</th>
+                    <th>Owner Contact Details</th>
+                    <th>Owner Address</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let soldcars of Cars">
+                <tr *ngIf="soldcars.issold!=false">
+                    <td>{{soldcars.brand}}</td>
+                    <td>{{soldcars.carModel}}</td>
+                    <td>{{soldcars.year}}</td>
+                    <td>{{soldcars.kms}}</td>
+                    <td>{{soldcars.user.fname}} {{soldcars.user.lname}}</td>
+                    <td>{{soldcars.mobilenumber}}</td>
+                    <td>{{soldcars.user.address}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-tab>
+</mat-tab-group>
