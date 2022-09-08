@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './Authentication/home/home.component';
+import { FooterComponent } from './footer/footer.component';
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 
 const routes: Routes = [
@@ -19,7 +20,7 @@ const routes: Routes = [
     path:'admin/home',
     component:AdminComponent,
     pathMatch:'full'
-  }
+  },
 ];
 
 @NgModule({

@@ -1,4 +1,19 @@
 .example-spacer {
     flex: 1 1 auto;
   }
-  
+  .spacer{
+    margin-left:15px;
+  }
+  .icon{
+    color:brown;
+    font-size: 70px;
+  }
+  .icon-name
+  {
+    font-size:140%;
+    font-family: "Sofia", sans-serif;
+    
+  }
+  a{
+   font-size: 16px; 
+  }

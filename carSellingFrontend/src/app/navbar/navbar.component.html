@@ -1,15 +1,23 @@
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
 <p>
     <mat-toolbar color="primary">
-      <a mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </a>
+      <span class="icon"><b>  &#9784; </b></span>
       <p>  </p>
-      <span> Car Trading.com</span>
+      <span class="icon-name"><b class="font-effect-fire">   &Cfr;a&real; Trading.c&#9775;m</b></span>
       <span class="example-spacer"></span>
-      <a mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-      </a>
+      <a class="nav-link" (click)="openlogin()"> LogIn   </a>
+      <mat-icon>login</mat-icon>
+
+      <span class="spacer"></span>
+
+      <a class="nav-link" (click)="openSignup()"> SignUp   </a>
+      <mat-icon>  account_circle</mat-icon>
+      <span class="spacer"></span>
+
+      <a> About   </a>
+      <span class="spacer"></span>
+      
+      <a> Help   </a>
       <a mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
         <mat-icon>share</mat-icon>
       </a>
