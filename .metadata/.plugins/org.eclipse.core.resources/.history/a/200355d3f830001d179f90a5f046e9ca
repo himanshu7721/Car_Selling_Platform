@@ -41,14 +41,7 @@ public class UserController {
 	@PostMapping("/signup")
 	public ResponseEntity<User> usersignup(@RequestBody User user)
 	{
-		if(user.getUsername()=="admin@123")
-		{
-			user.setUserRole("admin");
-		}
-		else
-		{
 		user.setUserRole("user");
-		}
 		User getuser=authservice.addnewuser(user);
 		return ResponseEntity.ok(getuser);
 	}

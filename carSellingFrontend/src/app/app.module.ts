@@ -30,6 +30,7 @@ import { authInterceptorProvider } from './Authentication/Services/intercept.int
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 import { AdminComponent } from './admin/admin.component';
 import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { FooterComponent } from './footer/footer.component';
     WelcomepageComponent,
     AdminComponent,
     FooterComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+.intro-container
+{
+    background-color: rgb(196, 202, 208);
+    padding: 7%;
+}
+h3{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.decorate
+{
+    font-size:x-large;
+    font-style: italic;
+    color:brown;
+}

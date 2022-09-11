@@ -54,6 +54,7 @@ export class AuthserviceService {
     localStorage.removeItem("user");
     localStorage.removeItem("id");
     localStorage.removeItem("carid");
+    localStorage.clear();
   }
 
 
@@ -81,8 +82,14 @@ export class AuthserviceService {
   //get current user role
   public getuserrole()
   {
+    if(this.isloggedin())
+    {
     let user=this.getuserdetails();
     return  user.authorities[0].authority;
-
+    }
+    else
+    {
+      return false;
+    }
   }
 }
