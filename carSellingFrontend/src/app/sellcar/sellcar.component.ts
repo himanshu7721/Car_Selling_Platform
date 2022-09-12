@@ -83,8 +83,3 @@ export class SellcarComponent implements OnInit {
   
 
 }
-
-
-
-
-

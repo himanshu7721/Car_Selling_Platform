@@ -7,6 +7,7 @@ import { AdminService } from './adminservice/admin.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  //imgbase='../../assets/images/';
 Cars:any;
   constructor(private adminservice:AdminService) { }
 

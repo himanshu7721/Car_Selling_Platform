@@ -74,7 +74,7 @@
               <td>
                 <mat-form-field>
                   <mat-label>Confirm Password</mat-label>
-                  <input type="password" matInput placeholder="type the same password as above" minlength="8" maxlength="15" required>
+                  <input type="password" matInput placeholder="type the same password as above" minlength="8" maxlength="15" [formControl]="rpassword" required>
                 </mat-form-field>
               </td>
             </tr>

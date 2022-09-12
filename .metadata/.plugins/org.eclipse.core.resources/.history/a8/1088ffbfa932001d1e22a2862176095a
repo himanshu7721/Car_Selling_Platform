@@ -1,0 +1,101 @@
+package com.example.demo.controller;
+
+import java.security.Principal;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.model.JwtResponse;
+import com.example.demo.model.LoginModel;
+import com.example.demo.model.User;
+import com.example.demo.security.JwtUtils;
+import com.example.demo.service.AuthenticationService;
+import com.example.demo.service.UserDetailsServiceImple;
+
+@RestController
+@CrossOrigin(allowedHeaders = "*",origins = "*")
+public class UserController {
+	@Autowired
+	AuthenticationService authservice;
+	
+	@Autowired
+	AuthenticationManager authenticationManager;
+	
+	@Autowired
+	UserDetailsServiceImple userdetailsserviceimple;
+	
+	@Autowired
+	JwtUtils jwtutils;
+	
+	@PostMapping("/signup")
+	public ResponseEntity<User> usersignup(@RequestBody User user)
+	{
+		System.out.println(user.getUsername());
+		if(user.getUsername().equals("admin@123"))
+		{
+			user.setUserRole("admin");
+		}
+		else
+		{
+		user.setUserRole("user");
+		}
+		User getuser=authservice.addnewuser(user);
+		return ResponseEntity.ok(getuser);
+	}
+	
+	@PostMapping("/login")
+	public ResponseEntity<?> userlogin(@RequestBody LoginModel loginmodel) throws Exception
+	{
+		try
+		{
+			authenticate(loginmodel.getUsername(), loginmodel.getPassword());
+			
+		}
+		catch(UsernameNotFoundException e)
+		{
+			throw new Exception("user not found");
+		}
+		UserDetails userdetails=this.userdetailsserviceimple.loadUserByUsername(loginmodel.getUsername());
+		String token=this.jwtutils.generateToken(userdetails);
+		return ResponseEntity.ok(new JwtResponse(token));
+	}
+	
+	
+	//Authentication
+	private void authenticate(String username,String password) throws Exception
+	{
+		try
+		{
+			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+			
+		}
+		catch(DisabledException e)
+		{
+			throw new Exception("USER DISABLED");
+		}
+		catch(BadCredentialsException e)
+		{
+			throw new Exception("INVALID CREDENTIALS"+e.getMessage());
+		}
+	}
+	
+	
+	@GetMapping("/current-user")
+	public User getCurrentUser(Principal principal)
+	{
+		return ((User)this.userdetailsserviceimple.loadUserByUsername(principal.getName()));
+	}
+	
+	
+}

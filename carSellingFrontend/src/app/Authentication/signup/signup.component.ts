@@ -30,6 +30,7 @@ export class SignupComponent implements OnInit {
   email_id=new FormControl('',[Validators.required, Validators.email]);
   username=new FormControl('',[Validators.required]);
   password=new FormControl('',[Validators.required]);
+  rpassword=new FormControl('',[Validators.required]);
 
   constructor(
     public dialogRef: MatDialogRef<SignupComponent>,private snack:MatSnackBar, private authservice:AuthserviceService,private router:Router
@@ -47,6 +48,15 @@ export class SignupComponent implements OnInit {
       this.snack.open('Invalid Details, Please Enter Valid Details','',{
         duration:3000,
       });
+    }
+    else if(this.password.value!=this.rpassword.value)
+    {
+      console.log(this.password.value);
+      console.log(this.rpassword.value);
+      this.snack.open('Password doesn\'t match\n Please enter the same passsword','',{
+        duration:3000,
+      });
+      console.log("passwor doesn't match");
     }
     else
     {

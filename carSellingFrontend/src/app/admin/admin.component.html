@@ -18,6 +18,7 @@
                     <td>{{car.year}}</td>
                     <td>{{car.owner}}</td>
                     <td>{{car.kms}}</td>
+                    <!--<td><img src={{imgbase}}{{car.carModel}}.jpg alt={{imgbase}}{{car.carModel}}.jpg></td>-->
                     <td><button class="approverejectbutton" mat-raised-button color="accent" (click)="onapprove(car.id)">Approve Car</button>
                     <br><br>
                     <button class="approverejectbutton" mat-raised-button color="warn" (click)="onreject(car.id)">Reject Car</button>
@@ -86,3 +87,6 @@
         </table>
     </mat-tab>
 </mat-tab-group>
+
+
+

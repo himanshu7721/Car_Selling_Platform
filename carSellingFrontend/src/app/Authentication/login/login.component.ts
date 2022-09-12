@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
             console.log(currentuser);
 
             //redirect: admin: admin dashboard
-            if(this.authservice.getuserrole()=="Admin")
+            if(this.authservice.getuserrole()=="admin")
             {
               this.router.navigate(['/admin/home'])
             }
