@@ -3,25 +3,29 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>Car Id</th>
                     <th>Car Brand</th>
                     <th>Car Model</th>
                     <th>Car Manufacturing Year</th>
                     <th>Car Owner</th>
                     <th>Total Kms Driven</th>
+                    <th>Car Price</th>
                     <th>Approve/Reject</th>
                 </tr>
             </thead>
             <tbody *ngFor="let car of Cars">
                 <tr *ngIf="car.isapproved!=true" >
+                    <td>{{car.id}}</td>
                     <td>{{car.brand}}</td>
                     <td>{{car.carModel}}</td>
                     <td>{{car.year}}</td>
                     <td>{{car.owner}}</td>
                     <td>{{car.kms}}</td>
-                    <!--<td><img src={{imgbase}}{{car.carModel}}.jpg alt={{imgbase}}{{car.carModel}}.jpg></td>-->
-                    <td><button class="approverejectbutton" mat-raised-button color="accent" (click)="onapprove(car.id)">Approve Car</button>
+                    <td><input matInput #carprice></td>
+                    
+                    <td><button class="approverejectbutton" mat-raised-button color="accent" (click)="onapprove(car.id,carprice.value)">Approve Car</button>
                     <br><br>
-                    <button class="approverejectbutton" mat-raised-button color="warn" (click)="onreject(car.id)">Reject Car</button>
+                    <button mat-raised-button class="approverejectbutton" color="warn" (click)="onreject(car.id)">Reject Car</button>
                 </td>
                 </tr>
             </tbody>
@@ -41,18 +45,20 @@
                     <th>Owner Name</th>
                     <th>Owner Contact Details</th>
                     <th>Owner Address</th>
+                    <th>Car Price</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let notsoled of Cars">
-                <tr *ngIf="notsoled.issold!=true&&notsoled.isapproved==true">
-                    <td>{{notsoled.brand}}</td>
-                    <td>{{notsoled.carModel}}</td>
-                    <td>{{notsoled.year}}</td>
-                    <td>{{notsoled.kms}}</td>
-                    <td>{{notsoled.user.fname}} {{notsoled.user.lname}}</td>
-                    <td>{{notsoled.mobilenumber}}</td>
-                    <td>{{notsoled.user.address}}</td>
-                    <td><button mat-raised-button color="accent" (click)="markAsSold(notsoled.id)">Mark As Sold</button></td>
+            <tbody *ngFor="let notsold of Cars">
+                <tr *ngIf="notsold.issold!=true&&notsold.isapproved==true">
+                    <td>{{notsold.brand}}</td>
+                    <td>{{notsold.carModel}}</td>
+                    <td>{{notsold.year}}</td>
+                    <td>{{notsold.kms}}</td>
+                    <td>{{notsold.user.fname}} {{notsold.user.lname}}</td>
+                    <td>{{notsold.mobilenumber}}</td>
+                    <td>{{notsold.user.address}}</td>
+                    <td>{{notsold.carprice}}</td>
+                    <td><button mat-raised-button color="accent" (click)="markAsSold(notsold.id)">Mark As Sold</button></td>
                 </tr>
             </tbody>
         </table>

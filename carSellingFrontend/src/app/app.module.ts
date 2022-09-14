@@ -31,6 +31,7 @@ import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 import { AdminComponent } from './admin/admin.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { AboutComponent } from './about/about.component';
     MatSelectModule,
     MatSnackBarModule,
     HttpClientModule,
+    MatGridListModule,
     
   ],
   providers: [authInterceptorProvider],

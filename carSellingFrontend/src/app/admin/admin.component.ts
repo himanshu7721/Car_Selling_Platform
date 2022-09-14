@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdminService } from './adminservice/admin.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AdminService } from './adminservice/admin.service';
 export class AdminComponent implements OnInit {
   //imgbase='../../assets/images/';
 Cars:any;
-  constructor(private adminservice:AdminService) { }
+  constructor(private adminservice:AdminService,private snack:MatSnackBar) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -26,10 +27,12 @@ public getAll()
     }
    )
 }
-onapprove(carid:any)
+onapprove(carid:any,price:any)
 {
   console.log(carid);
-  this.adminservice.approvecar(carid).subscribe(
+  if(price!=null&&price!=''&&price!=0)
+  {
+  this.adminservice.approvecar(carid,price).subscribe(
     (data:any)=>
     {
       console.log(data);
@@ -37,6 +40,13 @@ onapprove(carid:any)
     }
   )
   window.location.reload();
+  }
+  else
+  {
+    this.snack.open('!!Price can\'t be empty!!','',{
+      duration:3000,
+    }); 
+  }
 }
 onreject(carid:any)
 {

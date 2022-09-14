@@ -15,22 +15,30 @@
         <button mat-raised-button color="warn">View All Cars</button>
       </form>
       </div>
+<br><br>
 
+<!--Cars List-->
       <div class="carscontainer">
-        <table class="table">
-          <tbody>
-            <tr>
-              <td>
-                <div class="card">
-                  <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top" alt="Fissure in Sandstone"/>
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#!" class="btn btn-primary">Button</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <mat-grid-list cols="4" rowHeight="0.6:1">
+          <mat-grid-tile *ngFor="let car of Cars">
+            <!--Card for cars-->
+            <div class="card text-center">
+              <div class="card-header">{{car.brand}}</div>
+              <img src={{imgbase}}{{car.carModel}}.jpg class="card-img-top" alt="Car"/>
+              <div class="card-body">
+                <h5 class="card-title">{{car.brand}} {{car.carModel}}</h5>
+                <p class="card-text">{{car.carModel}} is a luxurious second hand car made by {{car.brand}} with a very good condition. It was manufactured on {{car.year}}.</p>
+                <p>Price:  $ {{car.carprice}}</p>
+                <h5>On-Road Price</h5>
+                <button class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal" (click)="opencarconfir()" *ngIf="car.issold!=true&&car.isapproved==true">Book A Test Drive</button>
+                <h4 style="color:brown" *ngIf="car.issold==true">Sold!!!</h4>
+                <h4 style="color:rgb(42, 61, 165)" *ngIf="car.isapproved!=true">Waiting!!! It will be available soon</h4>
+              </div>
+              <div class="card-footer text-muted">2 days ago</div>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
       </div>
+
+
+      

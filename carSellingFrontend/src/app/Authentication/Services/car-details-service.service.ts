@@ -14,4 +14,8 @@ export class CarDetailsServiceService {
     console.log(this.id);
     return this.http.post(`http://localhost:8080/savecar/${this.id}`,carDetails);
   }
+  getAllCars()
+  {
+    return this.http.get(`http://localhost:8080/getall`);
+  }
 }

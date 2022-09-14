@@ -50,7 +50,8 @@ export class LoginComponent implements OnInit {
             //redirect: admin: admin dashboard
             if(this.authservice.getuserrole()=="admin")
             {
-              this.router.navigate(['/admin/home'])
+              //this.router.navigate(['/admin/home']);
+              window.location.href='/admin/home';
             }
             //redirect:user: user dashboard
             else if(this.authservice.getuserrole()=="user")

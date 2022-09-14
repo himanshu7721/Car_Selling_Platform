@@ -35,10 +35,11 @@ public class CarService {
 	{
 		return carrepo.findAll();
 	}
-	public String approveCar(long id,boolean approvestatus)
+	public String approveCar(long id,String price)
 	{
 		CarDetails car=carrepo.getById(id);
-		car.setIsapproved(approvestatus);
+		car.setIsapproved(true);
+		car.setCarprice(price);
 		carrepo.save(car);
 		return "ok";
 	}

@@ -13,9 +13,9 @@ export class AdminService {
   }
 
   //change isapproved on database
-  approvecar(carid:any)
+  approvecar(carid:any,price:any)
   {
-    return this.http.put(`http://localhost:8080/admin/approvecar/${carid}`,true);
+    return this.http.put(`http://localhost:8080/admin/approvecar/${carid}`,price);
   }
   rejectcar(carid:any)
   {

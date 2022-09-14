@@ -34,6 +34,7 @@ public class CarDetails {
 	private String owner;
 	private String kms;
 	private String mobilenumber;
+	private String carprice="";
 	private boolean issold=false;
 	private boolean isapproved;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

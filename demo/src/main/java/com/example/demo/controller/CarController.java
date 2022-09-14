@@ -42,10 +42,10 @@ public class CarController {
 		return carservice.getAllCars();
 	}
 	@PutMapping("/admin/approvecar/{id}")
-	public String approvecar(@PathVariable("id") long id,@RequestBody boolean approvestatus)
+	public String approvecar(@PathVariable("id") long id,@RequestBody String price)
 	{
 		System.out.println("inside approvecar");
-		return (String)carservice.approveCar(id,approvestatus);
+		return (String)carservice.approveCar(id,price);
 	}
 	@DeleteMapping("/admin/rejectcar/{id}")
 	public String rejectcar(@PathVariable("id") long id)
