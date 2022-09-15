@@ -5,6 +5,7 @@ import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './Authentication/home/home.component';
 import { AdminGuard } from './Authentication/Services/admin.guard';
 import { UserGuard } from './Authentication/Services/user.guard';
+import { SellcarstatusComponent } from './sellcarstatus/sellcarstatus.component';
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 
 const routes: Routes = [
@@ -29,6 +30,12 @@ const routes: Routes = [
     path:'about',
     component:AboutComponent,
     pathMatch:'full'
+  },
+  {
+    path:'user/sellcarstatus',
+    component:SellcarstatusComponent,
+    pathMatch:'full',
+    canActivate:[UserGuard],
   },
 ];
 

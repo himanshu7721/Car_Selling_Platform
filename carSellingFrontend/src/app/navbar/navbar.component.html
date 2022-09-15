@@ -44,6 +44,10 @@
           <mat-icon>help</mat-icon>
           <span>Help Center</span>
         </button>
+        <button *ngIf="authservice.isloggedin()" [routerLink]="'/user/sellcarstatus'" mat-menu-item>
+          <mat-icon>info</mat-icon>
+          <span>View Applied car status</span>
+        </button>
         <button *ngIf="authservice.isloggedin()" (click)="logout()" mat-menu-item>
           <mat-icon>logout</mat-icon>
           <span>Logout</span>

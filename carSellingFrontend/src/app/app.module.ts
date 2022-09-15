@@ -32,6 +32,7 @@ import { AdminComponent } from './admin/admin.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { SellcarstatusComponent } from './sellcarstatus/sellcarstatus.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AdminComponent,
     FooterComponent,
     AboutComponent,
+    SellcarstatusComponent,
   ],
   imports: [
     BrowserModule,

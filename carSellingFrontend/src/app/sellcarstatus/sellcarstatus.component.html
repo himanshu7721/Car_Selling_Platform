@@ -1,0 +1,25 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Car Id</th>
+            <th>Car Brand</th>
+            <th>Car Model</th>
+            <th>Car Manufacturing Year</th>
+            <th>Car Owner</th>
+            <th>Status</th>
+            <th>Car Price</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let car of car">
+        <tr>
+            <td>{{car.id}}</td>
+            <td>{{car.brand}}</td>
+            <td>{{car.carModel}}</td>
+            <td>{{car.year}}</td>
+            <td>{{car.owner}}</td>
+            <td *ngIf="car.isapproved==true">Passed/Sold</td>
+            <td *ngIf="car.isapproved==false">Waiting</td>
+            <td>{{car.carprice}}</td>
+        </tr>
+    </tbody>
+  </table>
